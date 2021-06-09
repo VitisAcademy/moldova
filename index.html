@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Молдова</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/draggabilly.pkgd.min.js"></script>
+  <script src="js/db.js"></script>
+</head>
+<body>
+<div class="ave">
+  <div class="ave__title">Введите email</div>
+  <input type="email" maxlength="40" autocomplete="off" onkeyup="checkValidate(this)" autofocus class="ave__input">
+  <div class="ave__button button" onclick="logIn()">Продолжить</div>
+</div>
+<div class="header">
+  <div class="header__menu" onclick="toggleHamburger()"></div>
+  <div class="header__title">Журналист</div>
+</div>
+<div class="main">
+  <div class="task">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Помогите журналисту написать статью. Для этого заполните пробелы в предложениях.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page scribe left">
+      <div class="scribe__title">
+        В
+        <input type="text" maxlength="13" autocomplete="off" class="scribe__input" style='width: calc(215px + (241 - 215) * ((100vw - 320px) / 880))'>
+        центрами виноделия в Молдове, как и повсеместно в Европе, были
+        <input type="text" maxlength="9" autocomplete="off" class="scribe__input" style='width: calc(149px + (167 - 149) * ((100vw - 320px) / 880))'>
+        . Производство вина не прервалось и в последующие 300 лет
+        <input type="text" maxlength="9" autocomplete="off" class="scribe__input" style='width: calc(149px + (167 - 149) * ((100vw - 320px) / 880))'>
+        господства. Весь 16, 17 и 18 век Молдова поставляла вина в Польшу, Украину и Россию. После прихода сюда
+        <input type="text" maxlength="10" autocomplete="off" class="scribe__input" style='width: calc(165px + (185 - 165) * ((100vw - 320px) / 880))'>
+        империи в начале 19 века, на территории Молдовы (Бессарабии) стали модными винные поместья
+        <input type="text" maxlength="12" autocomplete="off" class="scribe__input" style='width: calc(198px + (222 - 198) * ((100vw - 320px) / 880))'>
+        . Сюда потянулись европейские
+        <input type="text" maxlength="7" autocomplete="off" class="scribe__input" style='width: calc(116px + (130 - 116) * ((100vw - 320px) / 880))'>
+        , часто с европейскими саженцами и собственной рецептурой. Именно в это время молдавские виноградники были засажены
+        <input type="text" maxlength="12" autocomplete="off" class="scribe__input" style='width: calc(198px + (222 - 198) * ((100vw - 320px) / 880))'>
+        сортами винограда. Впрочем, турецкий период спокойно пережили и древние молдавские
+        <input type="text" maxlength="9" autocomplete="off" class="scribe__input" style='width: calc(149px + (167 - 149) * ((100vw - 320px) / 880))'>
+        : Рара Нягрэ, Фетяска Нягрэ, Плэвай, Галбена, Згихарда, Бэтута Нягрэ, Фетяска Албэ, Кабася, а также многочисленные венгерские, болгарские, греческие и турецкие сорта на территории Молдовы.
+      </div>
+      <div class=" button" onclick="scoreButton(0);scribeCheck()">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden" style="z-index: 3"></div>
+    <div class="info" style="z-index: 2">
+      <div class="info__title">Укажите, к какой категории относится тот или иной сорт.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page any left" style="z-index: 1">
+      <div class="any__grid">
+        <div class="any__zone">
+          <div class="any__column" style="background-color: #FFC09F">Европейские</div>
+          <div class="any__column" style="background-color: #c2967a">Кавказские</div>
+          <div class="any__column" style="background-color: #846653">Автохтонные</div>
+        </div>
+        <div class="any__move"></div>
+      </div>
+      <div class="button" onclick="scoreButton(1)">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Прочитайте названия молдавских спиртных напитков и укажите, какой эквивалент им есть в мире.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page scribe__any left">
+      <div class="scribe__any__title">
+        Ialoveni – <input type="text" maxlength="5" autocomplete="off" class="scribe__any__input" style='width: calc(83px + (93 - 83) * ((100vw - 320px) / 880))'><br>
+        Prometeu – <input type="text" maxlength="8" autocomplete="off" class="scribe__any__input" style='width: calc(132px + (148 - 132) * ((100vw - 320px) / 880))'><br>
+        Luceafar – <input type="text" maxlength="6" autocomplete="off" class="scribe__any__input" style='width: calc(99px + (111 - 99) * ((100vw - 320px) / 880))'><br>
+        Pastoral – <input type="text" maxlength="5" autocomplete="off" class="scribe__any__input" style='width: calc(83px + (93 - 83) * ((100vw - 320px) / 880))'><br>
+        Nectar – <input type="text" maxlength="6" autocomplete="off" class="scribe__any__input" style='width: calc(99px + (111 - 99) * ((100vw - 320px) / 880))'><br>
+        Mireazma Codrului – <input type="text" maxlength="6" autocomplete="off" class="scribe__any__input" style='width: calc(99px + (111 - 99) * ((100vw - 320px) / 880))'><br>
+      </div>
+      <div class=" button" onclick="scoreButton(2);scribeAnyCheck()">Нажмите для завершения!</div>
+    </div>
+  </div>
+  <!-- задания -->
+  
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Прочитайте внимательно вопрос. Дайте развёрнутый ответ в комментариях к уроку.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page asked left">
+      <div class="asked__title"></div>
+      <div class=" button" onclick="endButton()">Дать ответ!</div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>
+<div class="menu menu__off">
+  <div class="menu__content"></div>
+</div>
+<script src="js/scribe.js"></script>
+<script src="js/sort_any.js"></script>
+<script src="js/scribe_any.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
